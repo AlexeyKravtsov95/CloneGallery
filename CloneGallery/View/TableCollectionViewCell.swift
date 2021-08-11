@@ -98,8 +98,8 @@ class TableCollectionViewCell: UICollectionViewCell {
     }
         
     override init(frame: CGRect) {
-            super.init(frame: frame)
-            setupHierarchy()
-            setupLayout()
-        }
+        super.init(frame: frame)
+        setupHierarchy()
+        setupLayout()
+    }
 }

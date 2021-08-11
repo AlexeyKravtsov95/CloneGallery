@@ -17,14 +17,14 @@ class GalleryCollectionViewController:
     }
     
     private lazy var layout: UICollectionViewFlowLayout = {
-             let layout = UICollectionViewFlowLayout()
-             layout.scrollDirection = .horizontal
+        let layout = UICollectionViewFlowLayout()
+        layout.scrollDirection = .horizontal
 
-             return layout
-         }()
+        return layout
+    }()
     
     private lazy var collectionView: UICollectionView = {
-         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.collectionViewLayout = createCompositionalLayout()
         collectionView.reloadData()
         collectionView.register(GalleryCollectionViewCell.self, forCellWithReuseIdentifier: GalleryCollectionViewCell.identification)
@@ -174,12 +174,11 @@ class GalleryCollectionViewController:
             default:
                 break
             }
-            return UICollectionReusableView()
-        }
+        return UICollectionReusableView()
+    }
 
 
     func setupLayout() {
-        
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         collectionView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor).isActive = true
         collectionView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor).isActive = true
