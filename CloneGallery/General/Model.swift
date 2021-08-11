@@ -10,4 +10,5 @@ struct Model {
     var image: UIImage?
     var title: String
     var count: String
+    var type: CellType
 }
