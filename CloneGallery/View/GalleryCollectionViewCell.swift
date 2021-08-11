@@ -30,7 +30,7 @@ class GalleryCollectionViewCell: UICollectionViewCell {
         let view = UIView()
         view.clipsToBounds = true
         view.layer.masksToBounds = true
-        view.backgroundColor = .white
+        view.backgroundColor = .clear
         return view
     }()
     
@@ -49,6 +49,7 @@ class GalleryCollectionViewCell: UICollectionViewCell {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
+        contentView.clipsToBounds = true
         setupHierarchy()
         setupLayout()
     }
@@ -62,7 +63,7 @@ class GalleryCollectionViewCell: UICollectionViewCell {
         imageCell.leadingAnchor.constraint(equalTo: containerView.leadingAnchor).isActive = true
         imageCell.trailingAnchor.constraint(equalTo: containerView.trailingAnchor).isActive = true
         imageCell.topAnchor.constraint(equalTo: containerView.topAnchor).isActive = true
-        imageCell.bottomAnchor.constraint(equalTo: containerView.bottomAnchor, constant: -40).isActive = true
+        imageCell.heightAnchor.constraint(equalToConstant: 200).isActive = true
         
         containerView.translatesAutoresizingMaskIntoConstraints = false
         containerView.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
@@ -72,24 +73,19 @@ class GalleryCollectionViewCell: UICollectionViewCell {
         
         title.translatesAutoresizingMaskIntoConstraints = false
         title.leadingAnchor.constraint(equalTo: containerView.leadingAnchor).isActive = true
-        title.trailingAnchor.constraint(equalTo: containerView.trailingAnchor).isActive = true
-        title.topAnchor.constraint(equalTo: containerView.topAnchor, constant: 205).isActive = true
-        title.bottomAnchor.constraint(equalTo: containerView.bottomAnchor).isActive = true
-        
+        title.topAnchor.constraint(equalTo: imageCell.bottomAnchor).isActive = true
+
         countLabel.translatesAutoresizingMaskIntoConstraints = false
-        countLabel.leadingAnchor.constraint(equalTo: title.leadingAnchor).isActive = true
-        countLabel.trailingAnchor.constraint(equalTo: title.trailingAnchor).isActive = true
-        countLabel.topAnchor.constraint(equalTo: title.topAnchor, constant: 35).isActive = true
-        countLabel.bottomAnchor.constraint(equalTo: title.bottomAnchor).isActive = true
-        
-        
+        countLabel.leadingAnchor.constraint(equalTo: containerView.leadingAnchor).isActive = true
+        countLabel.topAnchor.constraint(equalTo: title.bottomAnchor).isActive = true
     }
     
     func setupHierarchy() {
         addSubview(containerView)
-        
+
         containerView.addSubview(imageCell)
         containerView.addSubview(title)
         containerView.addSubview(countLabel)
+        
     }
 }
